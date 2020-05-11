@@ -1,0 +1,41 @@
+name: rusty brightness
+version: "0.0"
+author: Sami Sarsa <sami.sarsa@aalto.fi>
+about:  A tool to quickly set up screen brightness
+args:
+  - brightness:
+      short: b
+      long: brightness
+      value_name: BRIGHTNESS
+      help: floating point value between 0 and 1
+      default_value: "0.5"
+      multiple: true
+      required: true
+  - all:
+      long: all
+      short: a
+      required_unless_one:
+        - display_index
+        - display_name
+      takes_value: false
+  - verbosity:
+      short: v
+      long: verbosity
+      default_value: "0"
+      help: Sets the level of verbosity
+  - display_index:
+      short: i
+      long: display_index
+      help: integer
+      multiple: true
+      required_unless_one:
+        - all
+        - display_name
+  - display_name:
+      short: n
+      long: display_name
+      help: string point value
+      multiple: true
+      required_unless_one:
+        - all
+        - display_index

@@ -1,0 +1,9 @@
+[package]
+name = "rusty-brightness"
+version = "0.0.0"
+authors = ["taikamurmeli <sami.sarsa@helsinki.fi>"]
+edition = "2018"
+
+[dependencies]
+fstrings = "0.2.2"
+clap = { git = "https://github.com/clap-rs/clap", features = ["wrap_help", "yaml"] }
