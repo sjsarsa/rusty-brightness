@@ -5,6 +5,7 @@ extern crate fstrings;
 use ::std::process::Command;
 
 use clap::{App, load_yaml};
+use std::cmp::min;
 
 mod arg_validation;
 
@@ -57,7 +58,7 @@ fn main() {
                 .expect("Display index should between 1 and the number of detected displays."))
             .map(|i| available_display_names[i - 1].to_owned()).collect::<Vec<String>>()
     } else {
-        panic!("No display specified!");
+        available_display_names[0 .. min(brightnesses.len(), available_display_names.len())].to_vec()
     };
 
     if brightnesses.len() == 1 {
