@@ -1,7 +1,7 @@
 # rusty-brightness
-Simple brightness manager helper tool made as as a rust practice project.
+Simple multi-monitor brightness manager helper tool made as as a rust practice project.
 
-Main use: set brightness of multiple display with single command.
+Main use: set brightness of multiple displays with single command. (and learn rust along the way)
 
 Note: if you just want a helper for xrandr with multiple monitors, check out https://github.com/Ventto/mons
 
@@ -51,17 +51,24 @@ move the file
 ##### examples
 change all monitors' brightness to half:
 
-```rusty-brightness -a -b 0.5```
+```rusty-brightness 0.5 -a```
 
 change first two monitors' brightnesses:
 
-```rusty-brightness -i 1 2 -b .8 .7```
+```rusty-brightness .6 .4```
+
+change second monitor's brightnesses:
+
+```rusty-brightness .8 -i 2```
 
 ##### displayed with ```rusty-brightness -h```
 
 ```
 USAGE:
-    rusty-brightness [FLAGS] [OPTIONS] --brightness <BRIGHTNESS>...
+    rusty-brightness [FLAGS] [OPTIONS] <BRIGHTNESS>...
+
+ARGS:
+    <BRIGHTNESS>...    floating point value between 0 and 1 [default: 0.5]
 
 FLAGS:
     -a, --all        
@@ -69,7 +76,6 @@ FLAGS:
     -V, --version    Prints version information
 
 OPTIONS:
-    -b, --brightness <BRIGHTNESS>...          floating point value between 0 and 1 [default: 0.5]
     -i, --display_index <display_index>...    integer
     -n, --display_name <display_name>...      string point value
     -v, --verbosity <verbosity>               Sets the level of verbosity [default: 0]
